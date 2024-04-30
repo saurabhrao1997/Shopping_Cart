@@ -53,7 +53,12 @@ const getAllProduct = async(req,res)=>{
   
   try{
     if(req.query.search){
-      let allProduct = await Product.find({Type:req.query.search})
+      let allProduct = await Product.find({})
+    let filterProduct = await allProduct.filter((obj)=> obj.productName.includes(req.query.search))
+      return res.status(200).json({message:"success",data:filterProduct})
+    }
+    if(req.query.category){
+      let allProduct = await Product.find({Type: { $in:req.query.category}}).populate({path:"Type",model:"Category"})
       return res.status(200).json({message:"success",data:allProduct})
     }
 

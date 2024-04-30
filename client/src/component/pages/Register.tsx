@@ -59,13 +59,13 @@ console.log("Form",Form)
 
   return (
 <>
-<section className="w-full bg-gray-50 dark:bg-gray-900 ">
+<section className="w-full bg-gray-800 ">
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-white dark:text-white">
+      <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-black dark:text-white">
           <img className="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"/>
           Flowbite    
       </a>
-      <div className="w-full   bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-gray-900 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8 max-h-[80vh] overflow-auto" >
               <h1 className="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl dark:text-white">
                   Create and account
@@ -73,16 +73,16 @@ console.log("Form",Form)
               <form onSubmit={OnSubmit} className="space-y-10 md:space-y-6" action="#">
               
               <div>
-                      <label htmlFor="sname" className="block mb-2 text-sm font-medium text-white dark:text-white">Enter Your Name</label>
-                      <input type="text" name="sname" id="sname" className="bg-gray-50 border border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="...." onChange={onChange} />
+                      <label htmlFor="sname" className="block mb-2 text-sm font-medium text-White dark:text-white">Enter Your Name</label>
+                      <input type="text" name="sname" id="sname" className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="...." onChange={onChange} />
                   </div>
               <div>
                       <label htmlFor="lname" className="block mb-2 text-sm font-medium text-white dark:text-white">Enter Your Last Name</label>
-                      <input type="text" name="lname" id="lname" className="bg-gray-50 border border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="..." onChange={onChange} />
+                      <input type="text" name="lname" id="lname" className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="..." onChange={onChange} />
                   </div>
               <div>
                       <label htmlFor="age" className="block mb-2 text-sm font-medium text-white dark:text-white">Enter Your Age</label>
-                      <input type="number" name="age" id="age" className="bg-gray-50 border border-gray-300 text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="age"  onChange={onChange}  />
+                      <input type="number" name="age" id="age" className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="age"  onChange={onChange}  />
                   </div>
                   <div>
                       <label htmlFor="role" className="block mb-2 text-sm font-medium text-white dark:text-white">Select Your Role</label>

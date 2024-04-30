@@ -6,10 +6,12 @@ import toast, { Toaster } from 'react-hot-toast';
 import Modal from '../../Comman/Modal';
 import { useDeleteProductMutation} from '../../../API/Product'
 import Loader from '../../Comman/Loader';
+import { useGetCategoryQuery } from '../../../API/Category';
 
 export default function ProductIndex() {
   const [filter,setFilter] = useState({
-    search:""
+    search:"",
+    category:[]
   })
   const [deleteProduct] = useDeleteProductMutation();
   const [showModal, setShowModal] = useState(false);
@@ -18,22 +20,24 @@ export default function ProductIndex() {
   const [id, setId] = useState<number | string>("");
   console.log("id", id);
   const { data,isLoading } = useGetAllProductQuery(filter);
+  const {data:categoryData} = useGetCategoryQuery()
   useEffect(() => {
     if (data?.data) {
       setProduct(data?.data);
     }
-  }, [data?.data.length]);
+  }, [data]);
 
-
+console.log("category",categoryData)
   return (
     <>
       <div className="w-full  mx-auto">
         <div className="text-center">ProductIndex</div>
         <div className='w-full flex justify-end h-full items-center gap-2 px-4'> 
           <input type="text" className='px-1 w-1/2 border-2 border-black text-gray-600' placeholder='Search product...' 
-          onChange={(e)=>{setSearch(e?.target?.value); if(e?.target?.value == ""){setFilter({...filter,search:""})}}} /> <div className='h-full px-4 py-[2px]  bg-black text-white transition-all hover:bg-gray-600' onClick={()=>{setFilter({...filter,search:Search})}}>Search</div>
+          onChange={(e)=>{setSearch(e?.target?.value); if(e?.target?.value == ""){setFilter({...filter,search:""})}}} /> <div className='h-full px-4 py-[2px]  bg-black text-white transition-all hover:bg-gray-600 cursor-pointer' onClick={()=>{setFilter({...filter,search:Search})}}>Search</div>
         </div>
-        <div className="grid grid-cols-5 gap-4 px-2 my-10">
+        <div className='flex'>
+        <div className="grid grid-cols-5 gap-4 px-2 my-10 ">
           {product?.length > 0 &&
             product?.map((obj, index) => {
               return (
@@ -75,6 +79,19 @@ export default function ProductIndex() {
                 </>
               );
             })}
+        </div>
+        <div className='border border-blue-500 px-4 py-1  h-full bg-blue-gray-900 mt-10 rounded-lg shadow-lg'>
+          <div>
+            {categoryData &&
+              categoryData.data.map((obj)=>{
+                console.log("category",obj)
+                return(
+              <div className='px-2 my-4 py-1 cursor-pointer' onClick={()=>{setFilter({...filter,category:obj._id})}}>{obj?.name}</div>
+                )
+              })
+            }
+          </div>
+        </div>
         </div>
       </div>
    

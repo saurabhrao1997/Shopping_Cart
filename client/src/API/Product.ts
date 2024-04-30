@@ -23,7 +23,10 @@ export const productApi = createApi({
      getAllProduct: builder.query<any, any>({
        query:(param)=>{
         return {
-            url:`getproduct?search=${param.search}`
+            url:`getproduct`,
+            params:{
+                ...param
+            }
         }
         
        },
